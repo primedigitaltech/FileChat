@@ -1,6 +1,6 @@
 from zhipuai import ZhipuAI
  
-client = ZhipuAI(api_key="c7e37f4df18095500882f7680e4496a9.63jqS9iptluarKXv") # 请填写您自己的APIKey
+client = ZhipuAI(api_key="") # 请填写您自己的APIKey
  
 result = client.knowledge.create(
     embedding_id=3,
