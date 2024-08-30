@@ -38,6 +38,7 @@ def main():
         if "messages" not in st.session_state:
             file_object = client.files.create(file=uploaded_file, purpose="file-extract")
             file_content = json.loads(client.files.content(file_id=file_object.id).content)["content"]
+            client.files.delete(file_id=file_object.id)
             message_content = f"请对\n{file_content}\n的内容进行分析，并撰写一份论文摘要。"
             response = client.chat.completions.create(
                 model="glm-4-long",
