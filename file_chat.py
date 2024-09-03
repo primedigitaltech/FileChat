@@ -24,6 +24,7 @@ def main():
             "请在侧边栏输入API_KEY。可从"
             " https://bigmodel.cn/usercenter/apikeys 获取"
         )
+        st.stop()
     client = ZhipuAI(api_key=api_key)
     uploaded_file = st.file_uploader(
         "上传文件",
