@@ -46,3 +46,9 @@
     ```
     streamlit run file_chat.py
     ```
+
+## 一些相关开发技术文档链接
+
+* Streamlit： https://docs.streamlit.io/
+* 智谱文件问答API：https://bigmodel.cn/dev/howuse/fileqa
+* 智谱RAG问答API：https://bigmodel.cn/dev/howuse/retrieval
