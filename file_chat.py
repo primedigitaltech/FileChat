@@ -24,6 +24,7 @@ def main():
             "请在侧边栏输入API_KEY。可从"
             " https://bigmodel.cn/usercenter/apikeys 获取"
         )
+        st.stop()
     client = ZhipuAI(api_key=api_key)
     uploaded_file = st.file_uploader(
         "上传文件",
@@ -38,6 +39,7 @@ def main():
         if "messages" not in st.session_state:
             file_object = client.files.create(file=uploaded_file, purpose="file-extract")
             file_content = json.loads(client.files.content(file_id=file_object.id).content)["content"]
+            client.files.delete(file_id=file_object.id)
             message_content = f"请对\n{file_content}\n的内容进行分析，并撰写一份论文摘要。"
             response = client.chat.completions.create(
                 model="glm-4-long",
