@@ -116,4 +116,4 @@ def main(api_key, file_path_or_folder, output_excel):
 
 if __name__ == "__main__":
     # API Key, 待解析文件路径, 输出文件路径
-    main("0cd086fce44e6e97600730e6c537ea5b.6zsWw3PpQHAFrOye", "/home/czl/pythonProject/FileChat/analysis", "/home/czl/pythonProject/FileChat/analysis_result.xlsx")
+    main("API-key,place replace here...", "/home/czl/pythonProject/FileChat/analysis", "/home/czl/pythonProject/FileChat/analysis_result.xlsx")
