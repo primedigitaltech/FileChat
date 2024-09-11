@@ -3,6 +3,15 @@ import json
 import time
 import pandas as pd  # 用于将结果保存到Excel
 from zhipuai import ZhipuAI  # 假设你已经安装并配置好ZhipuAI
+# file-name:print_name.py
+import argparse
+import dotenv
+
+def get_parser():
+    parser = argparse.ArgumentParser(description="Demo of argparse")
+    parser.add_argument('--path', default='Great')
+    
+    return parser
 
 def process_file(api_key, file_path, messages):
     # 初始化ZhipuAI客户端
@@ -85,8 +94,14 @@ def main(api_key, file_path_or_folder):
         summary_question+="请你根据以上不同论文及其内容，对这些论文生成一个综述，比较每篇论文提出方法的优劣，包括采用相同指标相同数据集所进行的实验结果的比较，讨论各方法的实际表现；最后，总结每篇论文的研究动机和贡献点，比较各论文在创新和实用性方面的不同之处，概括下这些研究在该领域中的地位和影响。"
         # 生成综述
         summary_result = generate_summary_from_files(api_key,summary_question)
-        # print(summary_result)
+        print(summary_result)
     print("===========================处理完成===========================")
 
 if __name__ == "__main__":
-    main("API Key", "待解析文件路径")
+    dotenv.load_dotenv()
+    parser = get_parser()
+    args = parser.parse_args()
+    path = args.path
+
+    # API Key, 待解析文件路径, 输出文件路径
+    main(os.environ.get("API_Key"), path)
