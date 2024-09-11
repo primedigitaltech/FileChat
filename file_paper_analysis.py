@@ -42,7 +42,7 @@ def process_file(api_key, file_path, messages,question_types):
 def main(api_key, file_path_or_folder, output_excel):
     print("===========================开始处理文件===========================")
 
-
+   
     # 获取绝对路径
     file_path_or_folder = os.path.abspath(file_path_or_folder)
     output_excel = os.path.abspath(output_excel)
@@ -61,7 +61,7 @@ def main(api_key, file_path_or_folder, output_excel):
         "实验的表现",
         "论文所做的工作",
     ]
-
+    
     # 对应的 message_content，分析每篇论文
     messages = [
         "你是人工智能领域的专家，请对\n{file_content}\n的内容进行分析，并撰写一份论文摘要。",
@@ -116,4 +116,4 @@ def main(api_key, file_path_or_folder, output_excel):
 
 if __name__ == "__main__":
     # API Key, 待解析文件路径, 输出文件路径
-    main("0cd086fce44e6e97600730e6c537ea5b.6zsWw3PpQHAFrOye", "/home/czl/pythonProject/FileChat/analysis", "/home/czl/pythonProject/FileChat/analysis_result.xlsx")
+    main("API Key", "待解析文件路径", "输出文件路径")
