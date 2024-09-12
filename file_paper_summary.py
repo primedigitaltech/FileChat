@@ -52,6 +52,7 @@ def generate_summary_from_files(api_key, file_content):
     except Exception as e:
         print(f"文件比较出错时出错: {e}")
         return {}
+        
 def main(api_key, file_path_or_folder):
     print("===========================开始处理文件===========================")
 
