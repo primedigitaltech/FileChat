@@ -40,7 +40,8 @@ def main():
             file_object = client.files.create(file=uploaded_file, purpose="file-extract")
             file_content = json.loads(client.files.content(file_id=file_object.id).content)["content"]
             client.files.delete(file_id=file_object.id)
-            message_content = f"请对\n{file_content}\n的内容进行分析，并撰写一份论文摘要。"
+            # message_content = f"请对\n{file_content}\n的内容进行分析，并撰写一份论文摘要。"
+            message_content = f"你是人工智能领域的专家，请对\n{file_content}\n的内容进行分析,提取论文的摘要原文,摘要在Abstract之后,Introduction之前。"
             response = client.chat.completions.create(
                 model="glm-4-long",
                 messages=[
@@ -48,8 +49,8 @@ def main():
                 ],
             )
             msg = response.choices[0].message.content
-            st.session_state["messages"] = [{"role": "assistant", "content": msg}]  # 每次提问时不带上全文信息
-            # st.session_state["messages"] = [{"role": "user", "content": message_content}, {"role": "assistant", "content": msg}]  # 每次提问时带上全文信息
+            # st.session_state["messages"] = [{"role": "assistant", "content": msg}]  # 每次提问时不带上全文信息
+            st.session_state["messages"] = [{"role": "user", "content": message_content}, {"role": "assistant", "content": msg}]  # 每次提问时带上全文信息
 
         for msg in st.session_state.get("messages", []):
             st.chat_message(msg["role"]).write(msg["content"])

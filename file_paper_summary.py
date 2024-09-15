@@ -1,7 +1,7 @@
 import os
 from zhipuai import ZhipuAI  # 假设你已经安装并配置好ZhipuAI
 import argparse
-import dotenv
+# import dotenv
 
 import file_paper_analysis_improve
 
@@ -21,6 +21,7 @@ def generate_summary_from_files(api_key, file_content):
     except Exception as e:
         print(f"文件比较出错时出错: {e}")
         return {}
+
     
 def main(api_key, file_path_or_folder,output_analysis_excel,output_analysis_question,output_summary_question,output_summary_result):
     print("===========================开始处理综述部分===========================")
@@ -34,6 +35,7 @@ def main(api_key, file_path_or_folder,output_analysis_excel,output_analysis_ques
     if not os.path.exists(directory):
         os.makedirs(directory)
         print(f"目录 {directory} 已创建")
+
 
     # 获取绝对路径
     file_path_or_folder = os.path.abspath(file_path_or_folder)
@@ -68,4 +70,9 @@ def main(api_key, file_path_or_folder,output_analysis_excel,output_analysis_ques
 if __name__ == "__main__":
     
     # API Key, 待解析文件路径, 输出结果文件路径（excel）,输出问题路径（txt）,输出综述问题路径（txt）,输出综述结果路径（txt）
-    main("", "","","","","")
+    main("replace your own api key", "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文", 
+        "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/test.xlsx",
+        "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/test.txt",
+        "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/question-summary.txt",
+        "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/summary.txt")
+
