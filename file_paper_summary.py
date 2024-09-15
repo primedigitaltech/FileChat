@@ -70,7 +70,7 @@ def main(api_key, file_path_or_folder,output_analysis_excel,output_analysis_ques
 if __name__ == "__main__":
     
     # API Key, 待解析文件路径, 输出结果文件路径（excel）,输出问题路径（txt）,输出综述问题路径（txt）,输出综述结果路径（txt）
-    main("f3489a829804ad775c645151fa17495a.AzE83g1jBq4PqSyY", "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文", 
+    main("replace your own api key", "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文", 
         "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/test.xlsx",
         "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/test.txt",
         "/Users/lee/Desktop/documents/华师/teaching/人工智能通识课-大模型/论文/question-summary.txt",
